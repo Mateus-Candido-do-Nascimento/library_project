@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Minha Aplicação{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Se tiver um CSS -->
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('books.index') }}">Livros</a></li>
-                <li><a href="{{ url_for('clients.index') }}">Clientes</a></li>
-                <li><a href="{{ url_for('loans.index') }}">Empréstimos</a></li>
+                <li><a href="{{ url_for('book.list_books') }}">Livros</a></li>
+                <li><a href="{{ url_for('client.list_clients') }}">Clientes</a></li>
+                <li><a href="{{ url_for('loan.list_loans') }}">Empréstimos</a></li>
             </ul>
         </nav>
     </header>

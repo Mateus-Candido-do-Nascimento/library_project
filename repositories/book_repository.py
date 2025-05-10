@@ -1,3 +1,4 @@
+from models.book import Book
 class BookRepository:
     """
     Repositório responsável pela interação com os dados de livros no banco de dados.

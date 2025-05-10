@@ -1,3 +1,4 @@
+from models.loan import Loan
 class LoanRepository:
     """
     Repositório responsável pela interação com os dados de empréstimos no banco de dados.

@@ -1,3 +1,4 @@
+from models.client import Client
 class ClientRepository:
     """
     Repositório responsável pela interação com os dados dos clientes no banco de dados.
@@ -11,6 +12,11 @@ class ClientRepository:
         db_session (SQLAlchemy session): A sessão do banco de dados.
         """
         self.db_session = db_session
+        
+    def get_client_by_email(self, email):
+        """Busca cliente pelo e-mail."""
+        return self.db_session.query(Client).filter_by(email=email).first()
+
 
     def get_all_clients(self):
         """Retorna todos os clientes do banco de dados."""

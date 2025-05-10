@@ -1,3 +1,4 @@
+from models.book_loan import BookLoan
 class BookLoanRepository:
     """
     Repositório responsável pela interação com a associação entre livros e empréstimos no banco de dados.

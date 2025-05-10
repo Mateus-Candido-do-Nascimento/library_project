@@ -1,3 +1,5 @@
+from models import author
+from models.author import Author
 class AuthorRepository:
     """
     Repositório responsável pela interação com os dados dos autores no banco de dados.
