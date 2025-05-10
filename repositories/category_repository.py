@@ -1,4 +1,6 @@
+from models import category
 from models.category import Category
+
 class CategoryRepository:
     """
     Repositório responsável pela interação com os dados das categorias no banco de dados.

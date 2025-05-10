@@ -2,28 +2,42 @@
 
 {% block content %}
 <h2>Livros disponíveis</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Categoria</th>
-            <th>Autor</th>
-            <th>Quantidade</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for book in books %}
-        <tr>
-            <td>{{ book.id }}</td>
-            <td>{{ book.name }}</td>
-            <td>{{ book.description }}</td>
-            <td>{{ book.category_name }}</td>
-            <td>{{ book.author_name }}</td>
-            <td>{{ book.quantity }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+
+{% if books %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Autor</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.name or 'Não disponível' }}</td>
+                <td>{{ book.description or 'Não disponível' }}</td>
+                <td>{{ book.category_name or 'Não disponível' }}</td>
+                <td>{{ book.author_name or 'Não disponível' }}</td>
+                <td>{{ book.quantity or 'Não disponível' }}</td>
+                <td>
+                    <!-- Ações para cada livro -->
+                    <a href="{{ url_for('book.edit_book', book_id=book.id) }}" class="btn btn-primary">Editar</a>
+                    <a href="{{ url_for('book.delete_book', book_id=book.id) }}" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Não há livros disponíveis no momento.</p>
+{% endif %}
+
+<!-- Botão para adicionar um novo livro -->
+<a href="{{ url_for('book.add_book') }}" class="btn btn-success">Adicionar Livro</a>
 {% endblock %}
